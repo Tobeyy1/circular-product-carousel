@@ -19,7 +19,6 @@ const Home = () => {
   const [currentItem, setCurrentItem] = useState<number>(0);
   const [showMenu, setShowMenu] = useState<boolean>(true);
   const [mobileView, setMobileView] = useState<boolean>(false);
-  const mql = window.matchMedia("(max-width: 999px)");
   const imagePreview = itemData.map(
     (item: itemDataInterface, index: number) => {
       return (
@@ -34,6 +33,7 @@ const Home = () => {
   );
 
   useEffect(() => {
+    const mql = window.matchMedia("(max-width: 999px)");
     if (mql.matches) {
       setMobileView(true);
     }
@@ -57,7 +57,7 @@ const Home = () => {
         setShowMenu(true);
       }
     });
-  }, [mql]);
+  }, []);
 
   return (
     <div
@@ -72,9 +72,9 @@ const Home = () => {
         <AnimatePresence initial={false}>
           {showMenu && (
             <motion.ul
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "100%", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={{ scaleX: 1, opacity: 1 }}
+              exit={{ scaleX: 0, opacity: 0 }}
               className={classes.link__list}
             >
               <li>APPLE</li>

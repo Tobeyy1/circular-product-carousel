@@ -146,13 +146,17 @@
     ul {
       display: flex;
       list-style: none;
-      justify-content: space-evenly;
+      justify-content: space-between;
       .list__item {
         position: relative;
         width: 18%;
         aspect-ratio: 1;
         cursor: pointer;
         transition: scale 250ms ease-in-out;
+
+        .image {
+          object-fit: contain;
+        }
 
         &:hover {
           scale: 1.1;
@@ -257,7 +261,8 @@
       ul {
         flex-direction: column;
         width: 100%;
-        justify-content: space-between;
+        height: 100%;
+        justify-content: space-evenly;
         overflow: hidden;
         .list__item {
           width: 100%;
